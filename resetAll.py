@@ -27,13 +27,7 @@ You can e.g. edit the keystroke by editing the source of this addon.
 3. Save the file.
 4. Restart Anki.
 
-## Issues
-Open a ticket at [this addon's gitbucket issue 
-page](https://bitbucket.org/ch4noyu/anki-addon-reset-all-fields/issues) 
-(prefered method, also works without anonymously without login) or send me an 
-[e-mail](mailto:ch4noyu@yahoo.com). German is fine, too.
-
-## Suggestions, Feature Requests etc.
+## Issues, Suggestions, Feature Requests etc.
 Open a ticket at [this addon's gitbucket issue 
 page](https://bitbucket.org/ch4noyu/anki-addon-reset-all-fields/issues) 
 (prefered method, also works without anonymously without login) or send me an 
