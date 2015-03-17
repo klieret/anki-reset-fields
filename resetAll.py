@@ -47,12 +47,6 @@ page](https://bitbucket.org/ch4noyu/anki-addon-reset-all-fields/).
 * 17 March 2015: Initial version
 """
 
-# -----------------------------------------------------------
-# Go to the "CUSTOMIZE ME" block to adapt keystrokes etc.
-# Changes will only take effect after saving this file and
-# restarting anki!
-# ----------------------------------------------------------- 
-
 from anki.hooks import addHook     # hooks
 from aqt import mw                 # main window
 
