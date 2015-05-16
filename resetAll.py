@@ -47,63 +47,62 @@ page](https://bitbucket.org/ch4noyu/anki-addon-reset-all-fields/).
 * 17 March 2015: Initial version
 """
 
-from anki.hooks import addHook	 # hooks
-from aqt import mw ,dialogs				# main window
+from anki.hooks import addHook   # hooks
+from aqt import mw, dialogs      # main window
 
-class resetFields(object):
-	""" Adds a button that resets all fields in the editor."""
-	
-	def __init__(self):
-		""" Do nothing """
-		#print("Initialize resetAll.py")
-		pass
-	
-	def setupMenu(self,editor):
-		""" Adds the button to the editor menu. """
-		self.editor=editor
-		# CUSTOMIZE ME
-		# ---------------------
-		# You can easily change the following parameters:
-		#	 text: Button text
-		#	 tip: Toolip
-		#	 key: Keystroke to activate.
-		# the default values are:
-		# editor._addButton("reset", self.reset, text="R", tip="Reset all fields (Ctrl+Shift+R)",  key="Ctrl+Shift+R")
-		editor._addButton("reset", self.reset, text="R", tip="Reset all fields (Ctrl+Shift+R)",  key="Ctrl+Shift+R")
-		# ---------------------
-		
-	def reset(self):
-		""" Resets all fields. """
-		# reset all fields
-		note=self.editor.note # note that is currently edited
-		if not note:
-			# this shouldn't happen
-			print("resetAll.py: note is %s!" % str(note))
-			return
-		model=note.model()
-		fieldNames=mw.col.models.fieldNames(model)
-		for field in fieldNames:
-			note[field]=''
-		# save:
-		note.flush()
-		# display:
-		self.editor.setNote(note)
-		
-	def modelChanged(self):
-		""" Gets called if model changed. """
-		# this is needed for some reason, else editor.note
-		# is None for some reason and the above won't work.
-		addCardsDialog=dialogs._dialogs["AddCards"][1]
-		if addCardsDialog:
-			self.editor=addCardsDialog.editor
-	
+
+class ResetFields(object):
+    """ Adds a button that resets all fields in the editor."""
+
+    def __init__(self):
+        """ Do nothing """
+        self.editor = None
+
+    def setup_menu(self,editor):
+        """ Adds the button to the editor menu. """
+        self.editor = editor
+        # CUSTOMIZE ME
+        # ---------------------
+        # You can easily change the following parameters:
+        #   text: Button text
+        #   tip: Toolip
+        #   key: Keystroke to activate.
+        # the default values are:
+        # editor._addButton("reset", self.reset, text="R", tip="Reset all fields (Ctrl+Shift+R)", key="Ctrl+Shift+R")
+        editor._addButton("reset", self.reset, text="R", tip="Reset all fields (Ctrl+Shift+R)", key="Ctrl+Shift+R")
+        # ---------------------
+
+    def reset(self):
+        """ Resets all fields. """
+        # reset all fields
+        note = self.editor.note # note that is currently edited
+        if not note:
+            # this shouldn't happen
+            return
+        model = note.model()
+        field_names = mw.col.models.fieldNames(model)
+        for field in field_names:
+            note[field] = ''
+        # save:
+        note.flush()
+        # display:
+        self.editor.setNote(note)
+
+    def model_changed(self):
+        """ Gets called if model changed. """
+        # this is needed for some reason, else editor.note
+        # is None for some reason and the above won't work.
+        addCardsDialog = dialogs._dialogs["AddCards"][1]
+        if addCardsDialog:
+            self.editor = addCardsDialog.editor
+
 # initialize class		
-resetFieldsInstance=resetFields()
+resetFieldsInstance = ResetFields()
 
 # All functions that are added to the hook "setupEditorButtons" 
 # will be run after anki is finished setting up the formatting 
 # editor buttons. 
 # See http://ankisrs.net/docs/addons.html#hooks for more information.
-addHook("setupEditorButtons",resetFieldsInstance.setupMenu)
-# similar thing: modelChanged gets called if the current model changes.
-addHook("currentModelChanged",resetFieldsInstance.modelChanged)
+addHook("setupEditorButtons", resetFieldsInstance.setup_menu)
+# similar thing: model_changed gets called if the current model changes.
+addHook("currentModelChanged", resetFieldsInstance.model_changed)
