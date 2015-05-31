@@ -8,7 +8,7 @@ this can be changed by editing the source file (see below).
 ![scrot_cut.png](https://bitbucket.org/repo/ryKzjn/images/814931627-scrot_cut.png "Screenshot")
 
 ## Installation:
-* *Method 1:* Simply put the file resetFields.py in the folder Anki/addons.  
+* *Method 1:* Simply put the file resetFields.py in the folder Anki/addons.
 * *Method 2:* In Anki's main window, select ```Tools > Browse & Install``` and insert the add-on code from [anki's addons]("ttps://ankiweb.net/shared/addons/")
 
 ## Configuration
@@ -26,8 +26,9 @@ Open a ticket at [this addon's gitbucket issue page](https://bitbucket.org/ch4no
 The source is hostet at [this addon's bitbucket page](https://bitbucket.org/ch4noyu/anki-addon-reset-all-fields/).
 
 ## Copyright
-**Copyright:** *ch4noyu* (<mailto:ch4noyu@yahoo.com>)  
+**Copyright:** *ch4noyu* (<mailto:ch4noyu@yahoo.com>)
 **Licence:** GNU AGPL, version 3 or later
+
 
 ## History
 
