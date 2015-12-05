@@ -27,6 +27,7 @@ The source is hostet at [this addon's bitbucket page](https://bitbucket.org/ch4n
 
 ## Copyright
 **Copyright:** *ch4noyu* (<mailto:ch4noyu@yahoo.com>)
+
 **Licence:** GNU AGPL, version 3 or later
 
 
