@@ -1,5 +1,7 @@
 # Anki Addon: Reset all Fields
 
+**[Overview over my other Anki add-ons](http://www.lieret.net/opensource/#anki)**
+
 ## Description
 
 **Note: Meanwhile, there are other add-ons with similar functionality available, e.g. [this one](https://ankiweb.net/shared/info/136533494). Therefore, I am currently not maintaining this project anymore.**
